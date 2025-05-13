@@ -1,0 +1,82 @@
+digraph {
+	graph [size="12,12"]
+	node [align=left fontname=monospace fontsize=10 height=0.2 ranksep=0.1 shape=box style=filled]
+	5365596704 [label="
+ ()" fillcolor=darkolivegreen1]
+	5365511552 [label=NegBackward0]
+	5365511168 -> 5365511552
+	5365511168 -> 5361255984 [dir=none]
+	5361255984 [label="self
+ (64)" fillcolor=orange]
+	5365511168 [label="MeanBackward0
+------------------------------
+self          : [saved tensor]
+self_sym_sizes:          (64,)"]
+	5365511312 -> 5365511168
+	5365511312 -> 5360923600 [dir=none]
+	5360923600 [label="indices[0]
+ (64)" fillcolor=orange]
+	5365511312 -> 5361119168 [dir=none]
+	5361119168 [label="indices[1]
+ (64)" fillcolor=orange]
+	5365511312 [label="IndexBackward0
+-------------------------------
+indices       : [saved tensors]
+self_sym_sizes:        (64, 10)"]
+	5365511408 -> 5365511312
+	5365511408 [label="SubBackward0
+------------
+alpha: 1"]
+	5365511024 -> 5365511408
+	5365511024 [label="AddBackward0
+------------
+alpha: 1"]
+	5365510880 -> 5365511024
+	5365510880 -> 5361119328 [dir=none]
+	5361119328 [label="self
+ (64, 784)" fillcolor=orange]
+	5365510880 [label="MmBackward0
+--------------------------------
+mat2            :           None
+mat2_sym_sizes  :      (784, 10)
+mat2_sym_strides:        (10, 1)
+self            : [saved tensor]
+self_sym_sizes  :      (64, 784)
+self_sym_strides:             ()"]
+	5365510736 -> 5365510880
+	5300384160 [label="weight
+ (784, 10)" fillcolor=lightblue]
+	5300384160 -> 5365510736
+	5365510736 [label=AccumulateGrad]
+	5365510928 -> 5365511024
+	5360384368 [label="bias
+ (10)" fillcolor=lightblue]
+	5360384368 -> 5365510928
+	5365510928 [label=AccumulateGrad]
+	5365511072 -> 5365511408
+	5365511072 [label="UnsqueezeBackward0
+-------------------------
+dim: 18446744073709551615"]
+	5365510784 -> 5365511072
+	5365510784 -> 5361254704 [dir=none]
+	5361254704 [label="self
+ (64)" fillcolor=orange]
+	5365510784 [label="LogBackward0
+--------------------
+self: [saved tensor]"]
+	5365510832 -> 5365510784
+	5365510832 [label="SumBackward1
+---------------------------------------
+dim           : (18446744073709551615,)
+keepdim       :                   False
+self_sym_sizes:                (64, 10)"]
+	5365510304 -> 5365510832
+	5365510304 -> 5365597744 [dir=none]
+	5365597744 [label="result
+ (64, 10)" fillcolor=orange]
+	5365510304 [label="ExpBackward0
+----------------------
+result: [saved tensor]"]
+	5365511024 -> 5365510304
+	5365511552 -> 5365596704
+}
